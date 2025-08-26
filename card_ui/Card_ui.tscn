@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://bg1pauwyclt1g" path="res://card_ui/card_states/card_released_state.gd" id="8_tjkeq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wf446"]
-size = Vector2(64, 64)
+size = Vector2(54, 54)
 
 [node name="Card_UI" type="Control"]
 custom_minimum_size = Vector2(64, 85)
@@ -96,6 +96,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="dur_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 51.0
+offset_top = -18.5
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_r4i5q")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="State" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 14
@@ -112,9 +129,10 @@ text = "STATE"
 horizontal_alignment = 1
 
 [node name="detector" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
-position = Vector2(32, 53)
+position = Vector2(32.5, 53)
 shape = SubResource("RectangleShape2D_wf446")
 
 [node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
@@ -147,3 +165,5 @@ state = 5
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="detector" to="." method="_on_detector_area_entered"]
+[connection signal="area_exited" from="detector" to="." method="_on_detector_area_exited"]

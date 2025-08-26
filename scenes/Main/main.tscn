@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://tq0vl4ya5j08"]
+
+[ext_resource type="Script" uid="uid://bt7ms31qq4wws" path="res://scenes/Main/main.gd" id="1_yh5la"]
+[ext_resource type="PackedScene" uid="uid://02tq6vc8xtlq" path="res://card_ui/Card_ui.tscn" id="2_2w1kt"]
+[ext_resource type="Script" uid="uid://bp7oa1incmdja" path="res://scenes/Main/hand.gd" id="2_nyu32"]
+[ext_resource type="Resource" uid="uid://cbdfp1vnsk0u5" path="res://game Resources/cards/test cards/test_card01.tres" id="3_qvhan"]
+[ext_resource type="Resource" uid="uid://cjhn7vrarn8o6" path="res://game Resources/cards/test cards/test_card02.tres" id="4_k3v36"]
+[ext_resource type="Resource" uid="uid://xcwm6vwike2g" path="res://game Resources/cards/test cards/test_card03.tres" id="5_liyct"]
+[ext_resource type="PackedScene" uid="uid://bsjeuqmgxpmyo" path="res://scenes/Card cell/card_cell.tscn" id="7_5wuev"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yh5la")
+
+[node name="UI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+
+[node name="Hand" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -97.0
+offset_right = 133.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+alignment = 1
+script = ExtResource("2_nyu32")
+metadata/_edit_use_anchors_ = true
+
+[node name="Card_ui" parent="UI/Hand" instance=ExtResource("2_2w1kt")]
+layout_mode = 2
+card = ExtResource("3_qvhan")
+
+[node name="Card_UI" parent="UI/Hand" instance=ExtResource("2_2w1kt")]
+layout_mode = 2
+card = ExtResource("3_qvhan")
+
+[node name="Card_UI2" parent="UI/Hand" instance=ExtResource("2_2w1kt")]
+layout_mode = 2
+card = ExtResource("4_k3v36")
+
+[node name="Card_UI3" parent="UI/Hand" instance=ExtResource("2_2w1kt")]
+layout_mode = 2
+card = ExtResource("5_liyct")
+
+[node name="Button" type="Button" parent="UI"]
+offset_left = 536.0
+offset_top = 246.0
+offset_right = 626.0
+offset_bottom = 277.0
+text = "END TURN"
+
+[node name="Card_cell" parent="." instance=ExtResource("7_5wuev")]
+position = Vector2(206, 181)
+
+[node name="Card_cell2" parent="." instance=ExtResource("7_5wuev")]
+position = Vector2(301, 179)
+
+[node name="Card_cell3" parent="." instance=ExtResource("7_5wuev")]
+position = Vector2(373, 179)

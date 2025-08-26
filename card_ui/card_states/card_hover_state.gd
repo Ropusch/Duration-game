@@ -8,6 +8,8 @@ func enter() -> void:
 	
 	card_ui.hover_background.show()
 	card_ui.name_label.show()
+	
+	card_ui.z_index = 2
 
 
 func on_mouse_exited():

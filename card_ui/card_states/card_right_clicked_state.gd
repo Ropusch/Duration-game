@@ -12,9 +12,9 @@ func enter() -> void:
 
 
 func _right_clicked():
-	print("right clicked")
 	#do things
+	card_ui.card.reduce_dur(1)
+	card_ui.update_ui()
 	
-	card_ui.global_position += Vector2(100, 0)
 	
-	transition_requested.emit(self, CardState.State.IDLE)
+	transition_requested.emit(self, CardState.State.HOVER)

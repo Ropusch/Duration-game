@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://xcwm6vwike2g"]
+
+[ext_resource type="Script" uid="uid://stmne240emg0" path="res://custom resources/card.gd" id="1_dn58m"]
+
+[resource]
+script = ExtResource("1_dn58m")
+id = "test_03"
+name = "TEST CARD 3"
+type = 1
+target = 1
+duration = 0
+effect_1 = 0
+effect_2 = 0
+effect_3 = 0
+metadata/_custom_type_script = "uid://stmne240emg0"
