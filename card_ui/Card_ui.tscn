@@ -13,7 +13,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wf446"]
 size = Vector2(54, 54)
 
-[node name="Card_UI" type="Control"]
+[node name="Card_UI" type="Control" groups=["card_ui"]]
 custom_minimum_size = Vector2(64, 85)
 layout_mode = 3
 anchors_preset = 15
@@ -129,7 +129,7 @@ text = "STATE"
 horizontal_alignment = 1
 
 [node name="detector" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detector"]
 position = Vector2(32.5, 53)

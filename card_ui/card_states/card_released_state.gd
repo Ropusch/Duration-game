@@ -14,7 +14,7 @@ func enter() -> void:
 	
 	if not card_ui.targets.is_empty():
 		played = true
-		print("played card ", card_ui.card.name, " for: ", card_ui.targets)
+		play_card()
 
 
 func on_input(_event: InputEvent) -> void:
@@ -22,3 +22,14 @@ func on_input(_event: InputEvent) -> void:
 		return
 	
 	transition_requested.emit(self, CardState.State.IDLE)
+
+
+func play_card():
+	var target: Node
+	var card_pos = card_ui.get_card_center_position()
+	var min_distance = card_pos.distance_to(card_ui.targets[0].global_position)
+	for node in card_ui.targets:
+		if card_pos.distance_to(node.global_position) <= min_distance:
+			min_distance = card_pos.distance_to(node.global_position)
+			target = node
+	card_ui.play_card_for(target)

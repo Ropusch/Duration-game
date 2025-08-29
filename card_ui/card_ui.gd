@@ -12,6 +12,7 @@ signal reparent_requested(wich_card_ui: CardUI)
 @onready var hover_background: ColorRect = $hover_background
 
 @onready var state_machine: CardStateMachine = $CardStateMachine
+@onready var detector: Area2D = $detector
 
 var targets: Array[Node] = []
 
@@ -28,6 +29,7 @@ func _ready() -> void:
 	
 	if card.type == card.Type.INSTANT:
 		dur_label.hide()
+		detector.collision_mask = 2
 	
 	state_machine.init(self)
 
@@ -36,6 +38,9 @@ func update_ui():
 	name_label.text = card.name
 	dur_label.text = str(card.current_dur)
 
+
+func get_card_center_position() -> Vector2:
+	return $detector/CollisionShape2D.global_position
 
 
 #INPUTS
@@ -62,3 +67,21 @@ func _on_detector_area_entered(area: Area2D) -> void:
 
 func _on_detector_area_exited(area: Area2D) -> void:
 	targets.erase(area)
+
+
+### PALYING CARDS
+
+func play_card_for(target):
+	if card.target == card.Target.CELL:
+		reparent(target)
+		position = Vector2.ZERO - $detector/CollisionShape2D.position
+		detector.collision_layer = 2
+	elif card.target == card.Target.CARD:
+		target = target.get_parent()
+		target.card.current_dur += 1
+		target.update_ui()
+		discard()
+
+
+func discard() -> void:
+	queue_free()

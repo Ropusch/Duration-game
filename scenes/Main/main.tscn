@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://tq0vl4ya5j08"]
+[gd_scene load_steps=9 format=3 uid="uid://tq0vl4ya5j08"]
 
 [ext_resource type="Script" uid="uid://bt7ms31qq4wws" path="res://scenes/Main/main.gd" id="1_yh5la"]
 [ext_resource type="PackedScene" uid="uid://02tq6vc8xtlq" path="res://card_ui/Card_ui.tscn" id="2_2w1kt"]
 [ext_resource type="Script" uid="uid://bp7oa1incmdja" path="res://scenes/Main/hand.gd" id="2_nyu32"]
+[ext_resource type="Script" uid="uid://da8pcxsd5k0jq" path="res://scenes/Main/card_cells_handler.gd" id="2_w0isb"]
 [ext_resource type="Resource" uid="uid://cbdfp1vnsk0u5" path="res://game Resources/cards/test cards/test_card01.tres" id="3_qvhan"]
 [ext_resource type="Resource" uid="uid://cjhn7vrarn8o6" path="res://game Resources/cards/test cards/test_card02.tres" id="4_k3v36"]
 [ext_resource type="Resource" uid="uid://xcwm6vwike2g" path="res://game Resources/cards/test cards/test_card03.tres" id="5_liyct"]
@@ -10,6 +11,21 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_yh5la")
+
+[node name="CardCellsHandler" type="Node2D" parent="."]
+position = Vector2(320, 230)
+script = ExtResource("2_w0isb")
+
+[node name="CardCell" parent="CardCellsHandler" instance=ExtResource("7_5wuev")]
+position = Vector2(74, 0)
+
+[node name="CardCell2" parent="CardCellsHandler" instance=ExtResource("7_5wuev")]
+
+[node name="CardCell3" parent="CardCellsHandler" instance=ExtResource("7_5wuev")]
+
+[node name="CardCell4" parent="CardCellsHandler" instance=ExtResource("7_5wuev")]
+
+[node name="CardCell5" parent="CardCellsHandler" instance=ExtResource("7_5wuev")]
 
 [node name="UI" type="CanvasLayer" parent="." groups=["ui_layer"]]
 
@@ -52,12 +68,3 @@ offset_top = 246.0
 offset_right = 626.0
 offset_bottom = 277.0
 text = "END TURN"
-
-[node name="Card_cell" parent="." instance=ExtResource("7_5wuev")]
-position = Vector2(206, 181)
-
-[node name="Card_cell2" parent="." instance=ExtResource("7_5wuev")]
-position = Vector2(301, 179)
-
-[node name="Card_cell3" parent="." instance=ExtResource("7_5wuev")]
-position = Vector2(373, 179)
