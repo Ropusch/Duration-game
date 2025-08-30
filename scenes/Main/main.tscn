@@ -68,3 +68,5 @@ offset_top = 246.0
 offset_right = 626.0
 offset_bottom = 277.0
 text = "END TURN"
+
+[connection signal="child_exiting_tree" from="UI/Hand" to="UI/Hand" method="_on_child_exiting_tree"]

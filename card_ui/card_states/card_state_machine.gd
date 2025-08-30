@@ -4,6 +4,7 @@ extends Node
 @export var initial_state: CardState
 
 var current_state: CardState
+var last_state: CardState
 var states := {}
 
 
@@ -50,6 +51,7 @@ func _on_transition_requested(from: CardState, to: CardState.State):
 	if current_state:
 		current_state.exit()
 	
+	last_state = current_state
+	current_state = new_state
 	
 	new_state.enter()
-	current_state = new_state

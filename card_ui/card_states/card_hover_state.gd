@@ -1,5 +1,7 @@
 extends CardState
 
+@onready var card_state_machine: CardStateMachine = $".."
+
 
 func enter() -> void:
 	card_ui.color.color = Color.DARK_SLATE_BLUE
@@ -13,7 +15,7 @@ func enter() -> void:
 
 
 func on_mouse_exited():
-	transition_requested.emit(self, CardState.State.IDLE)
+	transition_requested.emit(self, card_state_machine.last_state.state)
 
 
 func on_gui_input(event: InputEvent) -> void:

@@ -33,3 +33,5 @@ func play_card():
 			min_distance = card_pos.distance_to(node.global_position)
 			target = node
 	card_ui.play_card_for(target)
+	
+	transition_requested.emit(self, CardState.State.PLAYED)

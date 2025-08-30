@@ -1,7 +1,7 @@
 class_name CardState
 extends Node
 
-enum State {IDLE, HOVER, R_CLICKED, CLICKED, DRAGGING, RELEASED}
+enum State {IDLE, HOVER, R_CLICKED, CLICKED, DRAGGING, RELEASED, PLAYED}
 
 @warning_ignore("unused_signal")
 signal transition_requested(from: CardState, to: State)
