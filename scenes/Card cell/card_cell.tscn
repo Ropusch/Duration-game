@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le10i"]
 size = Vector2(64, 64)
 
-[node name="CardCell" type="Area2D"]
+[node name="CardCell" type="Area2D" groups=["card_cells"]]
 script = ExtResource("1_jp2ca")
 
 [node name="ColorRect" type="ColorRect" parent="."]

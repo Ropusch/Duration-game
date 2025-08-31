@@ -27,6 +27,7 @@ window/stretch/mode="viewport"
 
 ui_layer=""
 card_ui=""
+card_cells=""
 
 [input]
 

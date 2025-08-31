@@ -22,6 +22,10 @@ var targets: Array[Node] = []
 
 
 func _ready() -> void:
+	#TODO !!!!!!!!!!!!!!!!!!!11
+	card = card.duplicate()
+	
+	
 	card.current_dur = card.duration
 	
 	name_label.text = card.name
@@ -37,6 +41,20 @@ func _ready() -> void:
 func update_ui():
 	name_label.text = card.name
 	dur_label.text = str(card.current_dur)
+	
+	if card.current_dur == 0 and card.type == card.Type.REGULAR:
+		card_exhausted()
+
+
+func card_exhausted() -> void:
+	#TODO !!!!!!!!!!!!!!!!1
+	queue_free()
+
+
+func card_end_turn_actions() -> void:
+	print(name, "is doing end turn actions")
+	await get_tree().create_timer(1).timeout
+
 
 
 func get_card_center_position() -> Vector2:

@@ -18,20 +18,6 @@ enum Target {CELL, CARD}
 @export var effect_3: Effect
 #???
 
-var current_dur : int
-
-
-func reduce_dur(value: int):
-	if type == Type.INSTANT:
-		return
-	if current_dur <= 0:
-		return
-	
-	current_dur -= value
-	
-	if current_dur <= 0:
-		destroy()
-
-
-func destroy():
-	print(name, " destroyed")
+var current_dur : int:
+	set(new_value):
+		current_dur = clampi(new_value, 0, 9)

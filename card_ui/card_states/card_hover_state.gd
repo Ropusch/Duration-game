@@ -19,9 +19,12 @@ func on_mouse_exited():
 
 
 func on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("LMB"):
-		card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
-		transition_requested.emit(self, CardState.State.CLICKED)
+	if card_state_machine.last_state.state == CardState.State.IDLE:
+		if event.is_action_pressed("LMB"):
+			card_ui.pivot_offset = card_ui.get_global_mouse_position() - card_ui.global_position
+			transition_requested.emit(self, CardState.State.CLICKED)
+			return
+		if event.is_action_pressed("RMB"):
+			transition_requested.emit(self, CardState.State.R_CLICKED)
+	elif card_state_machine.last_state.state == CardState.State.PLAYED:
 		return
-	if event.is_action_pressed("RMB"):
-		transition_requested.emit(self, CardState.State.R_CLICKED)

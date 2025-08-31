@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://tq0vl4ya5j08"]
+[gd_scene load_steps=10 format=3 uid="uid://tq0vl4ya5j08"]
 
 [ext_resource type="Script" uid="uid://bt7ms31qq4wws" path="res://scenes/Main/main.gd" id="1_yh5la"]
 [ext_resource type="PackedScene" uid="uid://02tq6vc8xtlq" path="res://card_ui/Card_ui.tscn" id="2_2w1kt"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://cjhn7vrarn8o6" path="res://game Resources/cards/test cards/test_card02.tres" id="4_k3v36"]
 [ext_resource type="Resource" uid="uid://xcwm6vwike2g" path="res://game Resources/cards/test cards/test_card03.tres" id="5_liyct"]
 [ext_resource type="PackedScene" uid="uid://bsjeuqmgxpmyo" path="res://scenes/Card cell/card_cell.tscn" id="7_5wuev"]
+[ext_resource type="Theme" uid="uid://bvmr0r20hug61" path="res://themes/card_label.tres" id="9_k7uo0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_yh5la")
@@ -62,11 +63,13 @@ card = ExtResource("4_k3v36")
 layout_mode = 2
 card = ExtResource("5_liyct")
 
-[node name="Button" type="Button" parent="UI"]
-offset_left = 536.0
-offset_top = 246.0
-offset_right = 626.0
-offset_bottom = 277.0
+[node name="EndTurnButton" type="Button" parent="UI"]
+offset_left = 526.0
+offset_top = 253.0
+offset_right = 630.0
+offset_bottom = 284.0
+theme = ExtResource("9_k7uo0")
 text = "END TURN"
 
 [connection signal="child_exiting_tree" from="UI/Hand" to="UI/Hand" method="_on_child_exiting_tree"]
+[connection signal="pressed" from="UI/EndTurnButton" to="." method="_on_end_turn_button_pressed"]

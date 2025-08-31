@@ -13,7 +13,7 @@ func enter() -> void:
 
 func _right_clicked():
 	#do things
-	card_ui.card.reduce_dur(1)
+	card_ui.card.current_dur -= 1
 	card_ui.update_ui()
 	
 	
