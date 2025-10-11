@@ -53,8 +53,11 @@ func card_exhausted() -> void:
 
 func card_end_turn_actions() -> void:
 	print(name, "is doing end turn actions")
+	
+	var default_color = color.color
+	color.color = Color.TOMATO
 	await get_tree().create_timer(1).timeout
-
+	color.color = default_color
 
 
 func get_card_center_position() -> Vector2:
