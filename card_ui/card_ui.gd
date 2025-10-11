@@ -57,6 +57,7 @@ func card_end_turn_actions() -> void:
 	var default_color = color.color
 	color.color = Color.TOMATO
 	await get_tree().create_timer(1).timeout
+	card.do_end_turn_effects()
 	color.color = default_color
 
 

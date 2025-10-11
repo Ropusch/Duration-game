@@ -7,8 +7,10 @@ script = ExtResource("1_jwqud")
 id = "test_01"
 name = "TEST CARD 1"
 type = 0
+target = 0
 duration = 2
-effect_1 = 0
-effect_2 = 0
-effect_3 = 0
+end_turn_effects = Dictionary[int, int]({
+1: 4
+})
+passive_effects = Dictionary[int, int]({})
 metadata/_custom_type_script = "uid://stmne240emg0"
